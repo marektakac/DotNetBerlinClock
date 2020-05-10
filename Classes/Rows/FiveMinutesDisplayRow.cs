@@ -8,8 +8,7 @@
 
         public override string GetRowValue()
         {
-            string rowValue = base.GetRowValue().Replace("YYY", "YYR");
-            return string.Concat(rowValue, GetValueOfNextRow());
+            return base.GetRowValue().Replace("YYY", "YYR");
         }
 
         protected override int GetLampsOnCount()

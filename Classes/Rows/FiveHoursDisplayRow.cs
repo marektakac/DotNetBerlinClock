@@ -6,11 +6,6 @@
         {
         }
 
-        public override string GetRowValue()
-        {
-            return string.Concat(base.GetRowValue(), GetValueOfNextRow());
-        }
-
         protected override int GetLampsOnCount()
         {
             return (NumberToDisplay - NumberToDisplay % 5) / 5;
