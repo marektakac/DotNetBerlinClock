@@ -56,11 +56,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Display.cs" />
     <Compile Include="Classes\ITime.cs" />
-    <Compile Include="Classes\Rows\FiveHoursDisplayRow.cs" />
-    <Compile Include="Classes\Rows\FiveMinutesDisplayRow.cs" />
+    <Compile Include="Classes\Rows\FiveHoursPerLampDisplayRow.cs" />
+    <Compile Include="Classes\Rows\FiveMinutesPerLampDisplayRow.cs" />
     <Compile Include="Classes\Rows\DisplayRow.cs" />
-    <Compile Include="Classes\Rows\OneHoursDisplayRow.cs" />
-    <Compile Include="Classes\Rows\OneMinutesDisplayRow.cs" />
+    <Compile Include="Classes\Rows\OneHourPerLampDisplayRow.cs" />
+    <Compile Include="Classes\Rows\OneMinutePerLampDisplayRow.cs" />
     <Compile Include="Classes\Rows\SecondsDisplayRow.cs" />
     <Compile Include="Classes\Time.cs" />
     <Compile Include="BDD\BerlinClockFeatureSteps.feature.cs">

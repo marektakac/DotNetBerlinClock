@@ -1,8 +1,8 @@
 ﻿namespace BerlinClock.Rows
 {
-    internal class FiveMinutesDisplayRow : DisplayRow
+    internal class FiveMinutesPerLampDisplayRow : DisplayRow
     {
-        public FiveMinutesDisplayRow(ITime time) : base(time.Minutes, "Y", 11)
+        public FiveMinutesPerLampDisplayRow(ITime time) : base(time.Minutes, "Y", 11)
         {
         }
 

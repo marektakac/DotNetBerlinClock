@@ -1,7 +1,6 @@
-﻿namespace BerlinClock.Classes.Rows
+﻿namespace BerlinClock.Rows
 {
     using System;
-    using BerlinClock.Rows;
 
     internal class DisplayRowFactory
     {
@@ -16,14 +15,14 @@
         {
             switch (displayRowType)
             {
-                case DisplayRowType.FiveHours:
-                    return new FiveHoursDisplayRow(time);
-                case DisplayRowType.OneHours:
-                    return new OneHoursDisplayRow(time);
-                case DisplayRowType.FiveMinutes:
-                    return new FiveMinutesDisplayRow(time);
-                case DisplayRowType.OneMinutes:
-                    return new OneMinutesDisplayRow(time);
+                case DisplayRowType.FiveHoursPerLamp:
+                    return new FiveHoursPerLampDisplayRow(time);
+                case DisplayRowType.OneHourPerLamp:
+                    return new OneHourPerLampDisplayRow(time);
+                case DisplayRowType.FiveMinutesPerLamp:
+                    return new FiveMinutesPerLampDisplayRow(time);
+                case DisplayRowType.OneMinutePerLamp:
+                    return new OneMinutePerLampDisplayRow(time);
                 case DisplayRowType.Seconds:
                     return new SecondsDisplayRow(time);
                 default:

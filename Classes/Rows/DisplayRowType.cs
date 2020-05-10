@@ -2,10 +2,10 @@
 {
     internal enum DisplayRowType
     {
-        FiveHours,
-        OneHours,
-        FiveMinutes,
-        OneMinutes,
+        FiveHoursPerLamp,
+        OneHourPerLamp,
+        FiveMinutesPerLamp,
+        OneMinutePerLamp,
         Seconds
     }
 }

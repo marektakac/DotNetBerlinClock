@@ -26,6 +26,11 @@
             Seconds = seconds;
         }
 
+        /// <summary>
+        /// Gets <see cref="ITime"/> instance from text.
+        /// </summary>
+        /// <param name="text">Time value in format 'HH:mm:ss'.</param>
+        /// <returns><see cref="ITime"/> instance from text.</returns>
         public static ITime FromText(string text)
         {
             if (string.IsNullOrEmpty(text))

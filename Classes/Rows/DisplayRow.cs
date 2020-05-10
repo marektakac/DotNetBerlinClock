@@ -2,6 +2,9 @@
 {
     using System.Linq;
 
+    /// <summary>
+    /// Base class for a representation of a display row. Use <see cref="DisplayRowFactory" /> to get the right instance.
+    /// </summary>
     internal abstract class DisplayRow
     {
         protected int LampsCount { get; }
@@ -18,14 +21,13 @@
 
         public virtual string GetRowValue()
         {
-            int countOfLampsOn = GetLampsOnCount();
-            string lampsOn = GetValueOfLamps(ValueOn, countOfLampsOn);
+            int lampsOnCount = GetLampsOnCount();
+            string lampsOn = GetValueOfLamps(ValueOn, lampsOnCount);
 
-            int countOfLampsOff = LampsCount - countOfLampsOn;
-            string lampsOff = GetValueOfLamps(ValueOff, countOfLampsOff);
+            int lampsOffCount = LampsCount - lampsOnCount;
+            string lampsOff = GetValueOfLamps(ValueOff, lampsOffCount);
 
-            string rowValue = string.Concat(lampsOn, lampsOff);
-            return rowValue;
+            return string.Concat(lampsOn, lampsOff);
         }
 
         protected abstract int GetLampsOnCount();

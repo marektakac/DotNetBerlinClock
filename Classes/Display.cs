@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Classes.Rows;
     using Rows;
 
     internal class Display
@@ -17,10 +16,10 @@
             displayRows = new List<DisplayRow>
                           {
                               displayRowFactory.CreateNew(DisplayRowType.Seconds),
-                              displayRowFactory.CreateNew(DisplayRowType.FiveHours),
-                              displayRowFactory.CreateNew(DisplayRowType.OneHours),
-                              displayRowFactory.CreateNew(DisplayRowType.FiveMinutes),
-                              displayRowFactory.CreateNew(DisplayRowType.OneMinutes)
+                              displayRowFactory.CreateNew(DisplayRowType.FiveHoursPerLamp),
+                              displayRowFactory.CreateNew(DisplayRowType.OneHourPerLamp),
+                              displayRowFactory.CreateNew(DisplayRowType.FiveMinutesPerLamp),
+                              displayRowFactory.CreateNew(DisplayRowType.OneMinutePerLamp)
                           };
         }
 
