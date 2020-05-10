@@ -2,16 +2,16 @@
 {
     internal class OneMinutesDisplayRow : DisplayRow
     {
-        public OneMinutesDisplayRow(ITime time) : base(time, "Y", 4)
+        public OneMinutesDisplayRow(ITime time) : base(time.Minutes, "Y", 4)
         {
         }
 
-        public override string GetValue()
+        public override string GetRowValue()
         {
-            int countOfLampsOn = Time.Minutes % 5;
+            int countOfLampsOn = NumberToDisplay % 5;
             string lampsOn = GetValueOfLamps(ValueOn, countOfLampsOn);
 
-            int countOfLampsOff = CountOfLamps - countOfLampsOn;
+            int countOfLampsOff = LampsCount - countOfLampsOn;
             string lampsOff = GetValueOfLamps(ValueOff, countOfLampsOff);
 
             string nextRowValue = GetValueOfNextRow();

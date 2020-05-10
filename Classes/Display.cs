@@ -9,15 +9,15 @@
         public Display(ITime time)
         {
             firstRow = new SecondsDisplayRow(time);
-            firstRow.AddNextRow(DisplayRowType.FiveHours)
-                    .AddNextRow(DisplayRowType.OneHours)
-                    .AddNextRow(DisplayRowType.FiveMinutes)
-                    .AddNextRow(DisplayRowType.OneMinutes);
+            firstRow.AddNextRow(DisplayRowType.FiveHours, time)
+                    .AddNextRow(DisplayRowType.OneHours, time)
+                    .AddNextRow(DisplayRowType.FiveMinutes, time)
+                    .AddNextRow(DisplayRowType.OneMinutes, time);
         }
 
         public string GetValue()
         {
-            return firstRow.GetValue();
+            return firstRow.GetRowValue();
         }
     }
 }

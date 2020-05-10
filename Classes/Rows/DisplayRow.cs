@@ -5,44 +5,44 @@
 
     internal abstract class DisplayRow
     {
-        protected int CountOfLamps { get; }
-        protected DisplayRow NextRow { get; private set; }
-        protected ITime Time { get; }
+        protected int LampsCount { get; }
+        protected int NumberToDisplay { get; }
         protected static string ValueOff { get; } = "O";
         protected string ValueOn { get; }
+        private DisplayRow NextRow { get; set; }
 
-        protected DisplayRow(ITime time, string valueOn, int countOfLamps)
+        protected DisplayRow(int numberToDisplay, string valueOn, int lampsCount)
         {
-            Time = time;
+            NumberToDisplay = numberToDisplay;
             ValueOn = valueOn;
-            CountOfLamps = countOfLamps;
+            LampsCount = lampsCount;
         }
 
-        public DisplayRow AddNextRow(DisplayRowType displayRowType)
+        public DisplayRow AddNextRow(DisplayRowType displayRowType, ITime time)
         {
             switch (displayRowType)
             {
                 case DisplayRowType.FiveHours:
-                    NextRow = new FiveHoursDisplayRow(Time);
+                    NextRow = new FiveHoursDisplayRow(time);
                     return NextRow;
                 case DisplayRowType.OneHours:
-                    NextRow = new OneHoursDisplayRow(Time);
+                    NextRow = new OneHoursDisplayRow(time);
                     return NextRow;
                 case DisplayRowType.FiveMinutes:
-                    NextRow = new FiveMinutesDisplayRow(Time);
+                    NextRow = new FiveMinutesDisplayRow(time);
                     return NextRow;
                 case DisplayRowType.OneMinutes:
-                    NextRow = new OneMinutesDisplayRow(Time);
+                    NextRow = new OneMinutesDisplayRow(time);
                     return NextRow;
                 case DisplayRowType.Seconds:
-                    NextRow = new SecondsDisplayRow(Time);
+                    NextRow = new SecondsDisplayRow(time);
                     return NextRow;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(displayRowType), displayRowType, null);
             }
         }
 
-        public abstract string GetValue();
+        public abstract string GetRowValue();
 
         protected static string GetValueOfLamps(string lampValue, int countOfLamps)
         {
@@ -53,7 +53,7 @@
         {
             if (NextRow != null)
             {
-                return string.Concat(Environment.NewLine, NextRow.GetValue());
+                return string.Concat(Environment.NewLine, NextRow.GetRowValue());
             }
 
             return string.Empty;
