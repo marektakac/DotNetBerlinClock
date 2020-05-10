@@ -2,13 +2,15 @@
 {
     internal class SecondsDisplayRow : DisplayRow
     {
-        public SecondsDisplayRow(ITime time) : base(time)
+        public SecondsDisplayRow(ITime time) : base(time, "Y", 1)
         {
         }
 
         public override string GetValue()
         {
-            throw new System.NotImplementedException();
+            string rowValue = Time.Seconds % 2 == 0 ? ValueOn : ValueOff;
+
+            return string.Concat(rowValue, GetValueOfNextRow());
         }
     }
 }
