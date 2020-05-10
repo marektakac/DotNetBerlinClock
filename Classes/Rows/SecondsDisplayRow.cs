@@ -12,5 +12,10 @@
 
             return string.Concat(rowValue, GetValueOfNextRow());
         }
+
+        protected override int GetLampsOnCount()
+        {
+            return 1;
+        }
     }
 }

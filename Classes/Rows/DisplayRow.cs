@@ -42,7 +42,17 @@
             }
         }
 
-        public abstract string GetRowValue();
+        public virtual string GetRowValue()
+        {
+            int countOfLampsOn = GetLampsOnCount();
+            string lampsOn = GetValueOfLamps(ValueOn, countOfLampsOn);
+
+            int countOfLampsOff = LampsCount - countOfLampsOn;
+            string lampsOff = GetValueOfLamps(ValueOff, countOfLampsOff);
+
+            string rowValue = string.Concat(lampsOn, lampsOff);
+            return rowValue;
+        }
 
         protected static string GetValueOfLamps(string lampValue, int countOfLamps)
         {
@@ -58,5 +68,7 @@
 
             return string.Empty;
         }
+
+        protected abstract int GetLampsOnCount();
     }
 }

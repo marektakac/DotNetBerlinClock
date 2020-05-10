@@ -1,8 +1,8 @@
 ﻿namespace BerlinClock.Rows
 {
-    internal class FiveHoursDisplayRow : DisplayRow
+    internal abstract class OneUnitPerLampDisplayRow : DisplayRow
     {
-        public FiveHoursDisplayRow(ITime time) : base(time.Hours, "R", 4)
+        protected OneUnitPerLampDisplayRow(int numberToDisplay, string valueOn, int lampsCount) : base(numberToDisplay, valueOn, lampsCount)
         {
         }
 
@@ -13,7 +13,7 @@
 
         protected override int GetLampsOnCount()
         {
-            return (NumberToDisplay - NumberToDisplay % 5) / 5;
+            return NumberToDisplay % 5;
         }
     }
 }
